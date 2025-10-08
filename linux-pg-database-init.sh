@@ -72,6 +72,7 @@ echo ""
 echo "4/4: Granting all privileges on database '${PG_DB}' to role '${PG_ROLE}'..."
 # Although ownership implies most privileges, explicitly granting ALL ensures full control.
 sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE ${PG_DB} TO ${PG_ROLE};"
+sudo -u postgres psql -c "ALTER USER ${PG_ROLE} CREATEDB;"
 echo "  All privileges granted on database '${PG_DB}' to role '${PG_ROLE}'."
 
 echo ""
